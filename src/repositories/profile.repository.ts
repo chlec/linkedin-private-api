@@ -53,6 +53,12 @@ export class ProfileRepository {
     };
   }
 
+  async visitProfile({ profileArn }: { profileArn: string }): Promise<any> {
+    const response = await this.client.request.profile.visitProfile({ profileArn });
+
+    return response;
+  }
+
   async getOwnProfile(): Promise<Profile | null> {
     const response = await this.client.request.profile.getOwnProfile();
 
